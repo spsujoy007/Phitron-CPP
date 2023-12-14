@@ -1,0 +1,1 @@
+{"name":"Local: O_sqrt_n-rute","url":"d:\\Phitron\\Semister 2\\Data Stucture\\O_sqrt_n-rute.cpp","tests":[{"id":1701181692519,"input":"3\nolive 80 5\nmolom 20 10\npeyaj 10 3","output":"olive 80 5\nmolom 20 10\npeyaj 10 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Semister 2\\Data Stucture\\O_sqrt_n-rute.cpp","group":"local","local":true}

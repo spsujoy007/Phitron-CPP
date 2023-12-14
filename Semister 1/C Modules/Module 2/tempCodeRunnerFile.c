@@ -1,0 +1,4 @@
+
+    {
+        scanf("%d", numbers[i]);
+    }

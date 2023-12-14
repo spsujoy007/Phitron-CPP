@@ -1,0 +1,1 @@
+{"name":"Local: basic","url":"d:\\Phitron\\First view\\C++ Modules\\Module 3\\basic.cpp","tests":[{"id":1699986212593,"input":"Sakib al hasan\n20 3.95","output":"Sakib"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\First view\\C++ Modules\\Module 3\\basic.cpp","group":"local","local":true}

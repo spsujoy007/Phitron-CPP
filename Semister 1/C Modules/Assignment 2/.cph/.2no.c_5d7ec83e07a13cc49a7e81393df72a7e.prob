@@ -1,0 +1,1 @@
+{"name":"Local: 2no","url":"d:\\Phitron\\First view\\Modules\\Assignment 2\\2no.c","tests":[{"id":1697266212176,"input":"-5","output":"1 2 3 4 5 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\First view\\Modules\\Assignment 2\\2no.c","group":"local","local":true}
