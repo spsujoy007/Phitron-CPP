@@ -4,11 +4,12 @@ using namespace std;
 int main()
 {
     list<int> myList;
+    list<int> myListReverse;
     int q;
     cin >> q;
     for (int i = 0; i < q; i++)
     {
-        long long int x, v;
+        int x, v;
         cin >> x >> v;
         if (x == 0)
         {
@@ -20,9 +21,13 @@ int main()
         }
         else if (x == 2)
         {
-            myList.erase(next(myList.begin(), v));
+            int size = myList.size();
+            if (v < size)
+            {
+                myList.erase(next(myList.begin(), v));
+            }
         }
-        cout << endl;
+
         cout << "L -> ";
         for (auto v : myList)
         {
@@ -30,11 +35,13 @@ int main()
         }
         cout << endl;
         cout << "R -> ";
-        myList.reverse();
-        for (auto v : myList)
+        myListReverse.assign(myList.begin(), myList.end());
+        myListReverse.reverse();
+        for (auto v : myListReverse)
         {
             cout << v << " ";
         }
+        cout << endl;
     }
 
     return 0;
