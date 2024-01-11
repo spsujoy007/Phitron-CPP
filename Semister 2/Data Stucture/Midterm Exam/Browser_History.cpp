@@ -4,112 +4,102 @@ using namespace std;
 class Node
 {
 public:
-    string site;
+    string address;
     Node *next;
     Node *prev;
-    Node(string site)
+    Node(string address)
     {
-        this->site = site;
+        this->address = address;
         this->next = NULL;
         this->prev = NULL;
     }
 };
 
-void insert_at_tail(Node *&head, Node *&tail, string site)
+void store_sites(Node *&head, Node *&tail, Node *&track, string site_name)
 {
-    Node *newNode = new Node(site);
+    Node *newNode = new Node(site_name);
     if (head == NULL)
     {
         head = newNode;
         tail = newNode;
+        track = newNode;
+        return;
     }
     tail->next = newNode;
     newNode->prev = tail;
     tail = newNode;
 }
 
-void print_site(Node *head)
+void query_site(Node *head, Node *&track)
 {
+    string find_site;
+    cin >> find_site;
     Node *tmp = head;
     while (tmp != NULL)
     {
-        cout << tmp->site << " ";
+        if (find_site == tmp->address)
+        {
+            track = tmp;
+            cout << track->address << endl;
+            return;
+        }
         tmp = tmp->next;
     }
+    cout << "Not Available" << endl;
 }
-
-Node *find_site(Node *head, string history)
+void query_next(Node *head, Node *&track)
 {
-    Node *temp = head;
-    while (temp != NULL)
+    if (track->next != NULL)
     {
-        if (temp->site == history)
-        {
-            return temp;
-            break;
-        }
-        temp = temp->next;
+        track = track->next;
+        cout << track->address << endl;
     }
-    return NULL;
+    else
+        cout << "Not Available" << endl;
 }
-
-void find_address(Node *head, string query)
+void query_prev(Node *head, Node *&track)
 {
-    Node *tmp = head;
-
-    if (query == "visit")
+    if (track->prev != NULL)
     {
-        string address;
-        cin >> address;
-        Node *getadd = find_site(head, address);
-        if (getadd != NULL)
-        {
-            cout << getadd->site;
-            tmp = getadd;
-        }
-        else
-            cout << "Not available";
+        track = track->prev;
+        cout << track->address << endl;
     }
-    else if (query == "next")
-    {
-        if (head->next != NULL)
-        {
-            tmp = tmp->next;
-            cout << tmp->site << " -next";
-        }
-    }
-    else if (query == "prev")
-    {
-        if (head->next != NULL)
-        {
-            tmp = tmp->prev;
-            cout << tmp->site << " -prev";
-        }
-    }
+    else
+        cout << "Not Available" << endl;
 }
 
 int main()
 {
     Node *head = NULL;
     Node *tail = NULL;
-    string site;
+    Node *track = NULL;
+    string input_sites;
     while (true)
     {
-        cin >> site;
-        if (site == "end")
+        cin >> input_sites;
+        if (input_sites == "end")
             break;
-        insert_at_tail(head, tail, site);
+        store_sites(head, tail, track, input_sites);
     }
-
     int ts;
     cin >> ts;
     for (int i = 0; i < ts; i++)
     {
-        string query;
-        cin >> query;
-        find_address(head, query);
-        cout << endl;
+        string command;
+        cin >> command;
+        if (command == "visit")
+        {
+            query_site(head, track);
+        }
+        else if (command == "next")
+        {
+            query_next(head, track);
+        }
+        else if (command == "prev")
+        {
+            query_prev(head, track);
+        }
     }
-    // print_site(head);
+
     return 0;
 }

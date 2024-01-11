@@ -19,6 +19,7 @@ void insert_at_tail(Node *&head, Node *&tail, long long int val)
     if (head == NULL)
     {
         head = newNode;
+        tail = newNode;
         return;
     }
     Node *temp = head;
@@ -27,6 +28,7 @@ void insert_at_tail(Node *&head, Node *&tail, long long int val)
         temp = temp->next;
     }
     temp->next = newNode;
+    temp = newNode;
 }
 
 void print_node(Node *v)

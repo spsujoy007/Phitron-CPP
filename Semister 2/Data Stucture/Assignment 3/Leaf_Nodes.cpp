@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node
 {
 public:
@@ -14,7 +15,7 @@ public:
     }
 };
 
-Node *input_tree()
+Node *insert_tree()
 {
     int val;
     cin >> val;
@@ -26,13 +27,12 @@ Node *input_tree()
     queue<Node *> q;
     if (root)
         q.push(root);
+
     while (!q.empty())
     {
-        // 1st store the node;
         Node *p = q.front();
         q.pop();
 
-        // 2nd all work;
         int l, r;
         cin >> l >> r;
         Node *newLeft;
@@ -49,7 +49,6 @@ Node *input_tree()
         p->left = newLeft;
         p->right = newRight;
 
-        // 3rd work children;
         if (p->left)
             q.push(p->left);
         if (p->right)
@@ -58,28 +57,48 @@ Node *input_tree()
     return root;
 }
 
-int count_leaf(Node *root)
+void descending_leaf_nodes(Node *root)
 {
     if (root == NULL)
     {
-        return 0;
+        return;
     }
-    if (root->left == NULL & root->right == NULL)
+
+    queue<Node *> q;
+    q.push(root);
+    list<int> st;
+    while (!q.empty())
     {
-        return 1;
+        Node *p = q.front();
+        q.pop();
+        if (p->left == NULL && p->right == NULL)
+        {
+            st.push_front(p->val);
+        }
+
+        if (p->left)
+            q.push(p->left);
+        if (p->right)
+            q.push(p->right);
     }
-    else
+    st.sort(greater<int>());
+    for (int val : st)
     {
-        int l = count_leaf(root->left);
-        int r = count_leaf(root->right);
-        return l + r;
+        cout << val << " ";
     }
 }
 
 int main()
 {
-    Node *root = input_tree();
-    cout << count_leaf(root);
-
+    Node *root = insert_tree();
+    if (root)
+    {
+        if (root->left == NULL && root->right == NULL)
+        {
+            cout << root->val;
+        }
+        else
+            descending_leaf_nodes(root);
+    }
     return 0;
 }

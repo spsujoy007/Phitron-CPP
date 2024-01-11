@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node
 {
 public:
@@ -26,13 +27,12 @@ Node *input_tree()
     queue<Node *> q;
     if (root)
         q.push(root);
+
     while (!q.empty())
     {
-        // 1st store the node;
         Node *p = q.front();
         q.pop();
 
-        // 2nd all work;
         int l, r;
         cin >> l >> r;
         Node *newLeft;
@@ -49,7 +49,6 @@ Node *input_tree()
         p->left = newLeft;
         p->right = newRight;
 
-        // 3rd work children;
         if (p->left)
             q.push(p->left);
         if (p->right)
@@ -58,28 +57,32 @@ Node *input_tree()
     return root;
 }
 
-int count_leaf(Node *root)
+void print_level(Node *root)
 {
     if (root == NULL)
     {
-        return 0;
+        cout << "nothing";
+        return;
     }
-    if (root->left == NULL & root->right == NULL)
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
     {
-        return 1;
-    }
-    else
-    {
-        int l = count_leaf(root->left);
-        int r = count_leaf(root->right);
-        return l + r;
+        Node *p = q.front();
+        q.pop();
+
+        cout << p->val << " ";
+
+        if (p->left)
+            q.push(p->left);
+        if (p->right)
+            q.push(p->right);
     }
 }
 
 int main()
 {
     Node *root = input_tree();
-    cout << count_leaf(root);
-
+    print_level(root);
     return 0;
 }

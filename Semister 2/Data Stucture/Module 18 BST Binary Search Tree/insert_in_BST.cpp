@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node
 {
 public:
@@ -58,28 +59,48 @@ Node *input_tree()
     return root;
 }
 
-int count_leaf(Node *root)
+// void level_order(Node *root)
+// {
+//     queue<Node *> q;
+//     q.push(root);
+//     while (!q.empty())
+//     {
+//         Node *f = q.front();
+//         q.pop();
+
+//         cout << f->val << " ";
+
+//         if (f->left)
+//             q.push(f->left);
+//         if (f->right)
+//             q.push(f->right);
+//     }
+// }
+
+bool b_search(Node *&root, int x)
 {
     if (root == NULL)
+        return false;
+    if (root->val == x)
+        return true;
+    if (x < root->val)
     {
-        return 0;
-    }
-    if (root->left == NULL & root->right == NULL)
-    {
-        return 1;
+        return b_search(root->left, x);
     }
     else
     {
-        int l = count_leaf(root->left);
-        int r = count_leaf(root->right);
-        return l + r;
-    }
+        return b_search(root->right, x);
+    };
 }
 
 int main()
 {
     Node *root = input_tree();
-    cout << count_leaf(root);
+    bool check = b_search(root, 16);
+    if (check)
+        cout << "Founded";
+    else
+        cout << "Not founded";
 
     return 0;
 }
