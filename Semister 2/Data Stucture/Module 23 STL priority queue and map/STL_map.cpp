@@ -13,7 +13,13 @@ int main()
     // {
     //     cout << it->first << " " << it->second << endl;
     // }
-    cout << mp["Chandu"]; // ["Chandu"] is worked like indexes; but in this case this is a key of map elment;
+    cout << mp["Chandu"] << endl; // ["Chandu"] is worked like indexes; but in this case this is a key of map elment;
+
+    // diffrent way -  complexity log(n);
+    mp["Rahat"] = 110;
+    // cout << mp["Rahat"] << endl;
+
+    cout << mp.count("Rahat");
 
     return 0;
 }
