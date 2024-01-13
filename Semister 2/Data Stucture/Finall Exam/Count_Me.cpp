@@ -5,23 +5,36 @@ int main()
 {
     int n;
     cin >> n;
-    // while (n--)
-    // {
-    // }
-    string line;
-    getline(cin, line);
-    string word;
-    stringstream ss(line);
-    map<string, int> mp;
-    while (ss >> word)
+    for (int i = 0; i < n; i++)
     {
-        // mp[word]++;
-        cout << word << ", ";
+        cin.ignore();
+        string line;
+        getline(cin, line);
+        string word;
+        stringstream ss(line);
+        map<string, int> mp;
+        while (ss >> word)
+        {
+            mp[word]++;
+            // cout << word << ", ";
+        }
+        int max = 0;
+        string name;
+        pair<string, int> p;
+        for (auto it : mp)
+        {
+            if (it.second > max)
+            {
+                max = it.second;
+                name = it.first;
+                p.first = it.first;
+                p.second = it.second;
+            }
+        }
+        // cout << mp[max].first;
+        // cout << p.first << " " << p.second << endl;
+        cout << name << " " << max << endl;
     }
-    // for (auto it : mp)
-    // {
-    //     cout << it.first << " " << it.second << endl;
-    // }
 
     return 0;
 }
