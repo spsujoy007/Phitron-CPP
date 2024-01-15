@@ -1,16 +1,18 @@
+// solved
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    set<int> s;
+    // store with priority queue...
+    priority_queue<int, vector<int>, greater<int>> pv;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         int x;
         cin >> x;
-        s.insert(x);
+        pv.push(x);
     }
     int q;
     cin >> q;
@@ -22,26 +24,26 @@ int main()
         {
             int x;
             cin >> x;
-            s.insert(x);
-            if (!s.empty()) // print
-                cout << *s.begin() << endl;
+            pv.push(x);
+            if (!pv.empty()) // print
+                cout << pv.top() << endl;
             else
                 cout << "Empty" << endl;
         }
         else if (input == 1)
         {
-            if (!s.empty()) // print
-                cout << *s.begin() << endl;
+            if (!pv.empty()) // print
+                cout << pv.top() << endl;
             else
                 cout << "Empty" << endl;
         }
         else if (input == 2)
         {
-            if (!s.empty())
+            if (!pv.empty())
             {
-                s.erase(*s.begin());
-                if (!s.empty()) // print
-                    cout << *s.begin() << endl;
+                pv.pop();
+                if (!pv.empty()) // print
+                    cout << pv.top() << endl;
                 else
                     cout << "Empty" << endl;
             }

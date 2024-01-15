@@ -1,3 +1,4 @@
+// solved
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -30,6 +31,8 @@ public:
             {
                 return true;
             }
+            else
+                return false;
         }
         return false;
     }
@@ -86,6 +89,14 @@ int main()
                 else
                     cout << "Empty" << endl;
             }
+            else
+            {
+                cout << "Empty" << endl;
+            }
+        }
+        else
+        {
+            cout << "Empty" << endl;
         }
     }
 
