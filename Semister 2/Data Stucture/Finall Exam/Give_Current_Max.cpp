@@ -33,8 +33,7 @@ public:
             else
                 return false;
         }
-        else
-            return false;
+        return false;
     }
 };
 
@@ -89,6 +88,14 @@ int main()
                 else
                     cout << "Empty" << endl;
             }
+            else
+            {
+                cout << "Empty" << endl;
+            }
+        }
+        else
+        {
+            cout << "Empty" << endl;
         }
     }
 
