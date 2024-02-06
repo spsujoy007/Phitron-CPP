@@ -15,6 +15,7 @@ void dfs(int src, int cnc)
             break;
         }
     };
+
     if (flag == true || src == cnc)
         cout << "YES" << endl;
     else
