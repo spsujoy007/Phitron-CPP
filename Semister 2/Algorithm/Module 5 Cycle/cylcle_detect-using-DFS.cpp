@@ -7,28 +7,21 @@ int parrent_array[N];
 
 bool ans;
 
-void bfs(int src)
+void dfs(int parent)
 {
-    queue<int> q;
-    q.push(src);
-    vis[src] = true;
+    // cout << parent << endl;
+    vis[parent] = true;
 
-    while (!q.empty())
+    for (int child : adj[parent])
     {
-        int parent = q.front();
-        q.pop();
-        for (int child : adj[parent])
+        if (vis[child] == true && parrent_array[parent] != child)
         {
-            if (vis[child] && parrent_array[parent] != child)
-            {
-                ans = true;
-            }
-            if (!vis[child])
-            {
-                vis[child] = true;
-                parrent_array[child] = parent;
-                q.push(child);
-            }
+            ans = true;
+        }
+        if (!vis[child])
+        {
+            parrent_array[child] = parent;
+            dfs(child);
         }
     }
 }
@@ -52,7 +45,7 @@ int main()
     {
         if (!vis[i])
         {
-            bfs(i);
+            dfs(i);
         }
     }
     if (ans)
