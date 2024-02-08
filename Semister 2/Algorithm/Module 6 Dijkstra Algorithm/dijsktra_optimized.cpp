@@ -5,16 +5,25 @@ const int N = 100;
 vector<pair<int, int>> v[N];
 int dis[N];
 
+class cmp
+{
+public:
+    bool operator()(pair<int, int> a, pair<int, int> b)
+    {
+        return a.second > b.second;
+    }
+};
+
 void dijsktra(int s)
 {
-    queue<pair<int, int>> q;
-    q.push({s, 0});
+    priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
+    pq.push({s, 0});
     dis[s] = 0;
 
-    while (!q.empty())
+    while (!pq.empty())
     {
-        pair<int, int> parent = q.front();
-        q.pop();
+        pair<int, int> parent = pq.top();
+        pq.pop();
         int node = parent.first;
         int cost = parent.second;
 
@@ -26,7 +35,7 @@ void dijsktra(int s)
             if (childCost + cost < dis[childNode])
             {
                 dis[childNode] = childCost + cost;
-                q.push({childNode, dis[childNode]});
+                pq.push({childNode, dis[childNode]});
             }
         }
     }
