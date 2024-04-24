@@ -1,0 +1,22 @@
+Python supports various types of inheritance:
+Single Inheritance: A child class inherits from only one parent class.
+Multiple Inheritance: A child class inherits from multiple parent classes.
+Multilevel Inheritance: A child class inherits from its parent class, which itself inherits from another parent class.
+Example (Single Inheritance):
+Python
+
+class Animal:
+    def eat(self):
+        print("I can eat")
+
+class Dog(Animal):
+    def bark(self):
+        print("I can bark")
+
+labrador = Dog()
+labrador.eat()  # Inherited from Animal
+labrador.bark()
+AI-generated code. Review and use carefully. More info on FAQ.
+Output:
+I can eat
+I can bark
