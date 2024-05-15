@@ -39,6 +39,7 @@ int main()
     }
     ans = false;
     memset(vis, false, sizeof(vis));
+    dfs(0);
 
     if (ans)
         cout << "Cycle Detected";

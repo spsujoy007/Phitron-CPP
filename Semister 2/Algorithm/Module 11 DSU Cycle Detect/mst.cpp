@@ -23,7 +23,7 @@ int dsu_find(int node)
     return leader;
 }
 
-int dsu_union_by_size(int node1, int node2)
+void dsu_union_by_size(int node1, int node2)
 {
     int leader_A = dsu_find(node1);
     int leader_B = dsu_find(node2);

@@ -1,0 +1,64 @@
+In Python, encapsulation and access modifiers play crucial roles in designing well-structured and secure code. Let’s explore each concept:
+
+Encapsulation:
+Definition: Encapsulation refers to bundling data (attributes) and methods (functions) into a single unit called a class. It helps hide implementation details and provides a clear interface for interacting with the class.
+Why Use Encapsulation?:
+Data Protection: Encapsulation protects data from unauthorized access or modification.
+Abstraction: It allows us to focus on what an object does rather than how it does it.
+Example:
+Python
+
+class BankAccount:
+    def __init__(self):
+        self.balance = 0
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+
+    def get_balance(self):
+        return self.balance
+
+account = BankAccount()
+account.deposit(1000)
+print(f"Balance: ${account.get_balance()}")
+AI-generated code. Review and use carefully. More info on FAQ.
+Output:
+Balance: $1000
+
+Access Modifiers:
+Access modifiers control the visibility and accessibility of class members (fields, methods, constructors) within a class or from outside the class.
+Common access modifiers in Python:
+Public: Members accessible from anywhere (no prefix or a single underscore _).
+Protected: Members accessible within the class and its subclasses (single underscore _ before the name).
+Private: Members accessible only within the class (double underscore __ before the name).
+Examples:
+Public Access Modifier:
+Python
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+AI-generated code. Review and use carefully. More info on FAQ.
+Public members like name and age are accessible from anywhere.
+Protected Access Modifier:
+Python
+
+class Student:
+    def __init__(self, name, roll, branch):
+        self._name = name
+        self._roll = roll
+        self._branch = branch
+AI-generated code. Review and use carefully. More info on FAQ.
+Protected members (with a single underscore) are accessible within the class and its subclasses.
+Private Access Modifier:
+Python
+
+class Employee:
+    def __init__(self, emp_id, salary):
+        self.__emp_id = emp_id
+        self.__salary = salary
+AI-generated code. Review and use carefully. More info on FAQ.
+Private members (with a double underscore) are accessible only within the class.
+Remember that Python relies on convention rather than strict enforcement for access control. Respect the conventions to maintain encapsulation and security.

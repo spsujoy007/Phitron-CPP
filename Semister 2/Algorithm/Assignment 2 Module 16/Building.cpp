@@ -72,8 +72,8 @@ int main()
     }
 
     sort(edgeList.begin(), edgeList.end(), compare);
-    ll totalCost = 0;
 
+    ll totalCost = 0;
     ll countEdges = 0;
     for (Edge ed : edgeList)
     {

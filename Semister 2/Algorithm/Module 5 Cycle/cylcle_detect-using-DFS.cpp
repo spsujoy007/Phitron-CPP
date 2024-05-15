@@ -48,6 +48,7 @@ int main()
             dfs(i);
         }
     }
+    
     if (ans)
         cout << "Cycle Detected";
     else
