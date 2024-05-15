@@ -7,11 +7,11 @@ bool vis[N];
 
 void dfs(int src)
 {
-    cout << src <<endl;
+    cout << src << endl;
     vis[src] = true;
-    for(int child : v[src])
+    for (int child : v[src])
     {
-        if(vis[child] == false)
+        if (vis[child] == false)
         {
             dfs(child);
         }

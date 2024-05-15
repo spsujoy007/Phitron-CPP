@@ -40,7 +40,9 @@ int main()
     }
     int s;
     cin >> s;
-    // memset()
+
+    memset(dp, -1, sizeof(dp));
+
     if (subset_sum(n, a, s))
         cout << "YES" << endl;
     else

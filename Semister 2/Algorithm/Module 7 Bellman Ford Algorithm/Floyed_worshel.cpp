@@ -54,5 +54,15 @@ int main()
         cout << endl;
     }
 
+    // detect a cycle
+    for (int i = 0; i < n; i++)
+    {
+        if (adj[i][i] < 0)
+        {
+            cout << "Cycle founded!" << endl;
+            break;
+        }
+    }
+
     return 0;
 }
