@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.container{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar{
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.navmenu{
+    display: flex;
+    color: white;
+    column-gap: 50px;
+    list-style-type: none;
+}
+.navmenu >li{
+    font-size: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.navmenu >li:hover{
+    color: #00d9ff;
+}
+
+
+.header{
+    background-image: linear-gradient(150deg, rgba(0, 0, 0, 0.879), #011d2297), url(./assets/herobg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 80vh;
+    overflow: hidden;
+}
+.logoDiv{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    color: white;
+    font-size: 25px;
+}
+.navlogo{
+    width: 25px;
+}
+
+.heroSection{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.heroSection > .content{
+    width: 50%;
+}
+.heroSection > .content > p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #06adcb;
+}
+.heroSection > .content > h1{
+    color: white;
+    font-size: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.content > button{
+    margin-top: 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0799b2;
+    outline: none;
+    border: 0;
+    padding: 10px 30px;
+    color:white
+}
+
+.heroSideimg{
+    width: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.security_users{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.security_users > img{
+    width: 130px;
+}
+
+.security_user_main{
+    background-color: #F9F9F9;
+}
+
+.section{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.title{
+    font-size: 40px;
+    font-weight: 500;
+    color: #202020;
+    text-align: center;
+}
+
+.title_para{
+    text-align: center;
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+
+.titleHeading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title_underimg{
+    width: 150px;
+}
+
+
+/* services section  */
+.services{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services_card{
+    text-align: center;
+    width: 300px;
+    border: 1px solid #9a9a9a;
+    padding: 20px;
+}
+
+.services_card > img{
+    width: 80px;
+}
+
+.services_card > h5{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* contact section  */
+.contact_main{
+    display: flex;
+    gap: 65px;
+    align-items: center;
+}
+
+.contact_body button{
+    margin-top: 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0799b2;
+    outline: none;
+    border: 0;
+    padding: 10px 30px;
+    color:white
+}
+
+.stylishTitle{
+    color: #0799b2;
+}
+
+.contact_body > h1{
+    margin-top: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.contact_body > p{
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.contanct > .message{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.message{
+    margin-bottom: 20px;
+}
+.message > img{
+    width: 60px;
+}
+
+.footer_main{
+    background-color: #151515;
+}
+
+.footer_main  .box1{
+    color: white;
+    width: 300px;
+    text-align: left;
+}
+
+.footerlogo{
+    margin-bottom: 20px;
+}
+
+.box1 > .notificationms{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.box1 > .subscription{
+    margin-top: 10px;
+    padding: 3px 10px;
+    width: 240px;
+    height: 34px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    background-color: #353535;
+    border: none;
+}
+
+.boxBody{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+}
+.box{
+    width: 200px;
+    color: white;
+}
+.box > ul{
+    list-style: circle;
+}
+.box > h3{
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .container{
+        width: 90%;
+    }
+    .header{
+        min-height: 100vh;
+    }
+    .heroSection{
+        flex-direction: column-reverse;
+        padding-bottom: 50px;
+    }
+    .heroSection > .content{
+        width: 100%;
+        margin-top: 50px;
+    }
+    .heroSection > .heroSideimg{
+        width: 100%;
+    }
+
+    .navmenu{
+        flex-wrap: wrap;
+    }
+
+    .security_users{
+        flex-wrap: wrap;
+        row-gap: 100px;
+    }
+    .security_users > img{
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .services_main{
+        margin-top: 80px;
+        padding: 0 1rem;
+    }
+    .services{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .services > .services_card{
+        width: fit-content;
+    }
+
+    .contact_main{
+        margin-top: 100px;
+        flex-direction: column;
+    }
+    .contact_main > img{
+        width: 100%;
+    }
+    .contact_body{
+        width: 90%;
+    }
+    .contact_body > h1{
+        font-size: 30px;
+    }
+    .footer_main{
+        padding: 40px;
+    }
+    .boxBody{
+        row-gap: 30px;
+    }
+
+    .logoDiv{
+        font-size: 20px;
+    }
+
+    .navmenu{
+        visibility: hidden;
+    }
+}
