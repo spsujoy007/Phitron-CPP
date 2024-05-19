@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #1A1A1A;
+}
+
+.mainlogo{
+    width: 50px;
+}
+
+.profile-pic{
+    width: 300px;
+}
+
+.headingitems{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.leftheading h1{
+    font-size: 65px;
+    margin-bottom: 5px;
+}
+.leftheading h3{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.leftheading p{
+    font-size: 17px;
+    color: #cfcaca;
+    width: 90%;
+    margin-bottom: 10px;
+}
+.leftheading{
+    width: 60%;
+}
+.rightheading{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    min-height: 100vh;
+}
+
+@media only screen and (max-width: 700px){
+    .contain{
+        max-width: 98vw;
+    }
+}
