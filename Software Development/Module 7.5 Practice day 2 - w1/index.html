@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <section>
+            <div class="searchfield">
+                <input id="inputfield" class="inputfield" placeholder="search food by name..." type="text">
+                <button id="submitbtn" class="">Search</button>
+            </div>
+        </section>
+
+        <!-- fetching api datas  -->
+        <section>
+            <p class="titlefood">All meals list...</p>
+            <div id="mealsection" class="mealsection">
+
+            </div>
+        </section>
+
+        <div id="modalcard" class="modalcard">
+            <!-- <div class="modalcontent">
+                <img src="https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"/>
+                <div class="modaldetail">
+                    <div class="icon">
+                        <i onclick="closeModal()" class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <h1>Teriyaki Chicken Casserole</h1>
+                    <p>Preheat oven to 350° F. Spray a 9x13-inch baking pan with non-stick spray. Combine soy sauce, ½ cup water, brown sugar, ginger and garlic in a small saucepan and cover. Bring to a boil over medium heat. Remove lid and cook for one minute once boiling. Meanwhile, stir together the corn starch and 2 tablespoons of water in a separate dish until smooth. Once sauce is boiling, add mixture to the saucepan and stir to combine. Cook until the sauce starts to thicken then remove from heat. Place the chicken breasts in the prepared pan. Pour one cup of the sauce over top of chicken.</p>
+
+                    <div class="moreinfo">
+                        <h5><i class="fa-solid fa-utensils"></i> Chicken</h5>
+                        <h5><i class="fa-solid fa-location-dot"></i> Japanese</h5>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div onclick="closeModal()" id="modal" class="modal">
+        </div>
+    </main>
+
+    <script src="https://kit.fontawesome.com/5d73ebcce2.js" crossorigin="anonymous"></script>
+    <script src="./setting.js"></script>
+</body>
+</html>
