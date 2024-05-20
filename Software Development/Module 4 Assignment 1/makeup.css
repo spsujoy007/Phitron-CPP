@@ -2,9 +2,11 @@
     --primary-color: #CDFB07;
     --secondary-color: #1A1A1A
 }
+
 .section{
     padding-bottom: 100px;
 }
+
 .contain{
     max-width: 80vw;
     margin: 0 auto;
@@ -48,5 +50,3 @@
 .bgc-secondary{
     background-color: var(--secondary-color);
 }
-
-
