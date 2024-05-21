@@ -26,6 +26,10 @@ section{
     color: var(--primary-color);
 }
 
+.neutral-bg{
+    background-color: var(--neutral-color);
+}
+
 .searchSection{
     margin-top: 50px;
 }
@@ -62,10 +66,14 @@ section{
 .content > p{
     font-size: 15px;
     margin-top: 10px;
+    text-align: center;
+}
+.content > .name{
+    text-align: center;
 }
 
 .card > .content{
-    padding: 20px 20px;
+    padding: 20px 0px;
     margin-top: -15px;
 }
 
@@ -94,7 +102,7 @@ section{
     padding: 2px 10px;
     width: 28%;
     text-align: left;
-    background-color: var(--neutral-color);
+    background-color: var(--primary-color);
 }
 .taginfo{
     padding: 2px 10px;
@@ -173,6 +181,8 @@ section{
 .titlePlayerSec{
     border-bottom: 1px solid var(--primary-color);
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .selectedPlayersMain{
@@ -186,7 +196,8 @@ section{
     background-color: var(--default-color);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--primary-color)
+    border: 1px solid var(--primary-color);
+    margin-bottom: 10px;
 }
 
 .singlePlayer > img{
@@ -200,4 +211,173 @@ section{
 .singlePlayer > .details > h2{
     font-size: 18px;
     color: var(--primary-color);
+}
+
+
+
+/* modal  */
+.maindiv{
+    position: relative;
+    padding-top: 40px;
+    min-height: 100vh;
+}
+.modalmain{
+    display: none;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    animation: modalOpenAnimate 0.3s ease-in-out;
+}
+
+
+.modal{
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    width: 1000px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+    top: 25%;
+    left: 20%;
+}
+.modal >img{
+    width: 35%;
+    border-radius: 20px;
+}
+
+.modalDetails > .closediv{
+    display: flex;
+    justify-content: space-between;
+}
+.closediv > i{
+    font-size: 25px;
+    margin-right: 20px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.modalinfo{
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.modalinfo > .otherinfo{
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.otherinfo > p{
+    padding: 2px 20px;
+    background-color: #e8e8e8;
+    font-size: 16px;
+    color: var(--neutral-color);
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+.otherinfo > p >span{
+    text-transform: capitalize;
+    font-weight: 400;
+    color: var(--neutral-color);
+}
+
+.iconmain{
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+    margin-right: 25px;
+}
+
+.iconmain > .icons{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    gap: 20px;
+}
+
+.iconmain > .icons > a{
+    color: var(--neutral-color);
+    transition: all 0.2s;
+}
+.iconmain > .icons > a:hover{
+    color: var(--primary-color);
+}
+
+.modalBanner{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /* background-color: var(--neutral-color); */
+    backdrop-filter: blur(8px);   
+    background-color: #151515a9;
+    display: none;
+    animation: modalOpenBackAnimate 0.3s ease-out;
+}
+
+@keyframes modalOpenAnimate {
+    0%{
+        backdrop-filter: blur(10px);
+    }
+    100%{
+        backdrop-filter: blur(0);
+    }
+}
+@keyframes modalOpenBackAnimate {
+    0%{
+        backdrop-filter: blur(20px);
+    }
+    100%{
+        backdrop-filter: blur(8px);
+    }
+}
+
+.navbar{
+    background: var(--default-color);
+    padding: 10px 0px;
+    position: fixed;
+    width: 100vw;
+    z-index: 5;
+    top: 0;
+}
+
+.logotitle{
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+.nav > .navitem{
+    display: flex;
+    gap: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+}
+.nav > .navitem > p:hover{
+    color: var(--primary-color);
+}
+
+
+.footer{
+    padding: 80px 0;
+    background-color: var(--neutral-color);
+    color: var(--default-color);
+    margin-top: 100px;
+    text-align: center;
 }
