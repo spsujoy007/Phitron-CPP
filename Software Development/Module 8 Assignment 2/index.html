@@ -8,7 +8,20 @@
 </head>
 <body>
     
-    <main>
+    <header>
+        <nav class="navbar">
+            <section class="nav">
+                <h2 class="logotitle">ClubHall</h2>
+                <div class="navitem">
+                    <p onclick="fetchData('')">Home</p>
+                    <p>About</p>
+                    <p>Contact</p>
+                    <p>Blog</p>
+                </div>
+            </section>
+        </nav>
+    </header>
+    <main class="maindiv">
         <section class="searchSection">
             <div class="searchField">
                 <input id="searchInput" type="text" placeholder="search player by name">
@@ -37,20 +50,67 @@
                 </div> -->
             </div>
             <div class="selectedPlayers">
-                <h4 class="primary-color titlePlayerSec">Selected players list:</h4>
+                <div class="titlePlayerSec">
+                    <h4 class="primary-color ">Selected players list:</h4>
+                    <h3 id="counting" class="primary-color counting">0</h3>
+                </div>
 
-                <div class="selectedPlayersMain">
-                    <div class="singlePlayer">
+                <div id="selectedPlayersMain" class="selectedPlayersMain">
+                    <p class="primary-color">No player selected</p>
+                    <!-- <div class="singlePlayer">
                         <img src="https://www.thesportsdb.com/images/media/player/thumb/ino2iw1600892848.jpg" alt="">
                         <div class="details">
                             <h2>Lionel Messi</h2>
                             <p>Fighting</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
+
+
+        <section class="modalSection">
+            <div id="modalmain" class="modalmain">
+                <!-- <div class="modal">
+                    <img src="https://www.thesportsdb.com/images/media/player/thumb/2liyox1609251537.jpg" alt="">
+                    <div class="modalDetails">
+                        <div class="closediv">
+                            <h2 class="primary-color">Yohann Pel</h2>
+                            <i onclick="closeModal()" class="fa-solid fa-circle-xmark"></i>
+                        </div>
+                        <div class="modalinfo">
+                            <p>Yohan Alexandre Mady Boli (born 17 November 1993) is a professional footballer who plays as a forward for Qatar Stars League side Qatar. Born in France, he represented Ivory Coast internationally. International career Boli was born in France and is Ivorian by descent. He debuted for the Ivory Coast in a 2-1 loss to Gabon for 2018 FIFA World Cup qualification on 2 September 2017. </p>
+                            <div class="otherinfo">
+                                <p><span>Natinality: </span> France</p>
+                                <p><span>Team: </span> strTeam</p>
+                                <p><span>Sport: </span> strSport</p>
+                                <p><span>Birthdate: </span> 1992-02-15</p>
+                                <p><span>Gender: </span> Male</p>
+                            </div>
+                            <div class="iconmain">
+                                <div class="icons">
+                                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                                    <a href=""><i class="fa-brands fa-instagram"></i></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+        </section>
+        <div id="modalBanner" onclick="closeModal()" class="modalBanner">
+        </div>
     </main>
+
+    <footer class="footer">
+        <section>
+            <h1>ClubHall</h1>
+            <p style="margin-top: 10px;">Dhaka club, Bangladesh. The team of joy - Playing is health</p>
+            <p>All copyright reserved by Sujoy</p>
+        </section>
+    </footer>
 
 
 
