@@ -10,7 +10,7 @@ def withdraw(money):
     print(f"Informations: {money}tk withdraw. Current balance {balance}tk. Money withdraw successful. Happy life")
     
 def send_money(money, reciver_id):
-    global balance
+    global balances
     balance-=money
     history = (money, balance, reciver_id)
     print(f"Informations: {money}tk sended. Current balance {balance}tk. Reciver id: {reciver_id}. Money sended successfully to {reciver_id}. Happy life")
