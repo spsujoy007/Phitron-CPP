@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Practice</title>
+</head>
+<body style='font-family: monospace; background-color: wheat; margin: 0; padding: 0;'>
+    <div style=" min-height: 100vh; width: 1240px; margin: 0 auto; padding: 40px;">
+
+        <h1 style="font-size: 35px; padding: 0 0 30px 0; border-bottom: 2px solid #f6be55;">Welcome to the practice project - "{{name}}" </h1>
+
+        <!-- join method  -->
+        <div id="join" style="margin-top: 50px;">
+            <h1># Join method - using array of object</h1>
+            <div style="margin-left: 30px;">
+                <p style="font-size: 18px;">{{ employees | join:" - " }}</p>
+            </div>
+        </div>
+
+        <div id="date" style="margin-top: 50px;">
+            <h1># Add value </h1>
+            <div style="margin-left: 30px;">
+                <h2>{{id | add:"Earning: 90000"}}</h2>
+            </div>
+        </div>
+
+        <div id="date" style="margin-top: 50px;">
+            <h1># CapFirst</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{'django' | capfirst}}</h2>
+            </div>
+        </div>
+
+        <div id="date" style="margin-top: 50px;">
+            <h1># Cut method using - cut:" "</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{'Programming Is My Passion' | cut:" "}}</h2>
+            </div>
+        </div>
+
+        <div id="dictsort" style="margin-top: 50px;">
+            <h1># dictsort method by salary</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{ employees | dictsort:"salary" | slice:'2'}}</h2>
+            </div>
+        </div>
+
+        <div id="firstfilter" style="margin-top: 50px;">
+            <h1># First filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{ employees | first}}</h2>
+            </div>
+        </div>
+
+        <div id="last filter" style="margin-top: 50px;">
+            <h1># Last  filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{ employees | last }}</h2>
+            </div>
+        </div>
+
+        <div id="length" style="margin-top: 50px;">
+            <h1># Length checker</h1>
+            <div style="margin-left: 30px;">
+                <h2>Total employees: {{ employees | length }}</h2>
+            </div>
+        </div>
+
+        <div id="linenumbers" style="margin-top: 50px;">
+            <h1># Line numbers</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{ employees | linenumbers }}</h2>
+            </div>
+        </div>
+
+        <div id="lowerfilter" style="margin-top: 50px;">
+            <h1># lower filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>YOU ARE A BIG DON = {{ "YOU ARE A BIG DON" | lower }}</h2>
+            </div>
+        </div>
+
+        <div id="upperFilter" style="margin-top: 50px;">
+            <h1># Upper Filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>but don is small baby = {{ "but don is small baby" | upper }}</h2>
+            </div>
+        </div>
+        
+        <div id="Title" style="margin-top: 50px;">
+            <h1># Title filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>don is don but who i am? = {{ "don is don but who i am?" | title }}</h2>
+            </div>
+        </div>
+
+        <div id="slice" style="margin-top: 50px;">
+            <h1># Slice filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>{{employees | slice:'2'}}</h2>
+            </div>
+        </div>
+
+        <div id="wordcount" style="margin-top: 50px;">
+            <h1># Wordcount</h1>
+            <div style="margin-left: 30px;">
+                <h2>Dons wife is in a tour in Barishal = Total word: {{'Dons wife is in a tour in Barishal' | wordcount}}</h2>
+            </div>
+        </div>
+
+        <div id="truncatewordsFilter" style="margin-top: 50px;">
+            <h1># Truncatewords Filter</h1>
+            <div style="margin-left: 30px;">
+                <h2>Vut er raja holo don = {{'Vut er raja holo don' | truncatewords:4}}</h2>
+            </div>
+        </div>
+
+        <div id="truncatewordsFilter" style="margin-top: 50px;">
+            <h1># Truncatewords Filter</h1>
+            <div style="margin-left: 30px;">
+                <b>I</b> <button>love</button> <span>dogs</span> | striptags
+            </div>
+        </div>
+        
+
+        <!-- <div style="display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; height: 100%; gap: 10px; ">
+            {% for emp in employees %}
+            <div style="background-color: #fdcf79; padding: 15px; border-radius: 15px;">
+                <h1>ID: {{emp.id}}</h1>
+                <p style="font-size: 17px;">Department: {{emp.department_id}}</p>
+                <h1>{{emp.name}}</h1>
+                <p><b>{{emp.address}}</b></p>
+                <h2>Job: {{emp.job_title}}</h2>
+            </div>
+            {% endfor %}
+        </div> -->
+        
+    </div>
+</body>
+</html>
