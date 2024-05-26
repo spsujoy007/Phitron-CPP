@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block mainContent %}
+    <main class="mt-5">
+        <section class="container">
+            
+            <div class="row justify-content-center gy-3 gx-3">
+                {% for meal in meals %}
+                    <div class="card col-4" style="width: 350px;">
+                        <img src="{{meal.strMealThumb}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{meal.strMeal}}</h5>
+                          <p>For a quick and nutritious meal, try a grilled chicken and quinoa bowl. Toss in some mixed greens, cherry tomatoes, cucumber, and a tangy lemon-tahini dressing. This dish is packed with protein, fiber, and essential vitamins, making it a perfect choice for a balanced diet.</p>
+                        </div>
+                      </div>
+                {% endfor %}
+            </div>
+                
+        </section>
+    </main>
+{% endblock mainContent %}
