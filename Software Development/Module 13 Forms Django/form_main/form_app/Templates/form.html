@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block mainContent %}
+
+<section class="container mt-5">
+    <form method="post" action="/about/">
+        {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+              <select name="select" class="form-select" aria-label="Default select example">
+                <option selected>Rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+          </div>
+          <button type="submit">Submit</button>
+    </form>
+</section>
+
+    
+{% endblock mainContent %}
+    
