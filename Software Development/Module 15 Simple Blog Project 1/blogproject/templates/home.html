@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="my-5 row">
+    
+    {% for post in posts %}
+        <div class="col-sm-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.content}}</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <h6>Categories: </h6>
+                  {% for category in post.category.all %}
+                  <button disabled class="btn-dark btn text-white mb-1">{{category.name}}</button>
+                  {% endfor %}
+              <h6 class="mt-3"><span class="text-danger">Author: </span>{{post.author.name}}</h6>
+
+              <div class="d-flex justify-content-end">
+                <a href="{% url 'edit_post' post.id %}"><button class="btn btn-primary me-2 px-4">Edit</button></a>
+                <a href="{% url 'delete_post' post.id %}"><button class="btn btn-danger px-4">Delete</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+        
+</div>
+{% endblock contents %}
+    
