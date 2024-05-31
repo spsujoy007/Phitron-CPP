@@ -4,6 +4,7 @@ from author.models import Author
 
 # Create your models here.
 class Post(models.Model):
+    id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
     category = models.ManyToManyField(Category)
