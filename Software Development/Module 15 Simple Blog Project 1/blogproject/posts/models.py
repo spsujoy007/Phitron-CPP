@@ -9,6 +9,7 @@ class Post(models.Model):
     content = models.TextField()
     category = models.ManyToManyField(Category)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    post_time = models.DateField()
 
     def __str__(self):
         return f'{self.title}'

@@ -5,3 +5,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = '__all__'
+        labels = {
+            'post_time': 'Post'
+        }
+        widgets = {
+            'post_time': forms.DateInput(attrs={'type': 'date'})
+        }
