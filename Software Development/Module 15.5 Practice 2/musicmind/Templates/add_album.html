@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+<div style="margin: 50px 0; min-height: 70vh;">
+    <div style="width: 500px; margin: auto;">
+        <h1 style="border-bottom: 2px solid #49090c; color: #49090c; text-align: left; padding-bottom: 10px; margin-bottom: 20px;">Album</h1>
+        <form method="post">
+                {% csrf_token %}
+                {{form | crispy}}
+                <button type="submit" class="btn w-100" style="background-color: #49090c; color: whitesmoke; font-size: 18px;">Submit</button>
+        </form>
+        </div>
+    </div>
+{% endblock contents %}
+
