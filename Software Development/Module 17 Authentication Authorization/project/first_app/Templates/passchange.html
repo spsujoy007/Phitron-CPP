@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div style="width: 800px; margin: auto;">
+    <h1>Password change Form</h1>
+
+    
+    {% if messages %}
+        <div>
+            
+            {% for m in messages %}
+                <p {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</p>
+                
+            {% endfor %}
+                
+        </div>        
+    {% endif %}
+        
+
+    <form method="post">
+        
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        
+        {% for er in form.non_field_errors %}
+            <p class="bg-danger text-white p-3"><small>{{er}}</small></p>
+        {% endfor %}
+        {% if form.non_field_errors %}
+            
+        
+        {% endif %}
+        
+        {% for fm in form %}
+        <!-- {{form | crispy}} -->
+        {{fm.label_tag}}
+        {{fm}}
+        {{fm.errors | striptags}}
+        
+        {% endfor %}
+        <br>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+
+        <!-- <div class="mt-2">
+            <p>Are you new? click <a href="{% url 'signup' %}">signup</a></p>
+        </div> -->
+    </div>
+{% endblock contents %}
+    

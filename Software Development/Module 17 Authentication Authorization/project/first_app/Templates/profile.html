@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block contents %}
+    <div>
+        <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+    </div>
+
+
+    {% if messages %}
+        <div>
+            
+            {% for m in messages %}
+                <p style="background-color: #048c3d; color: white; width: 100%; padding: 10px;">{{m}}</p>
+                
+            {% endfor %}
+                
+        </div>        
+    {% endif %}
+
+
+    <form method="post">
+        
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        
+        {% for er in form.non_field_errors %}
+            <p class="bg-danger text-white p-3"><small>{{er}}</small></p>
+        {% endfor %}
+        {% if form.non_field_errors %}
+            
+        
+        {% endif %}
+        
+        {% for fm in form %}
+        <!-- {{form | crispy}} -->
+        {{fm.label_tag}}
+        {{fm}}
+        {{fm.errors | striptags}}
+        
+        {% endfor %}
+        <br>
+            <button class="btn btn-primary" type="submit">Change data</button>
+        </form>
+{% endblock contents %}
+    
