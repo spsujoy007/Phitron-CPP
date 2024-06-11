@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+    <div style="width: 600px; margin: 40px auto;">
+        <h1 class="mt-5 text-uppercase text-danger border-bottom border-danger pb-2">{{type}} Page</h1>
+        <h5 class="mb-4">Hey {{user.first_name}} {{user.last_name}}</h5>
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy}}
+
+            <div>
+                <button type="submit" class="btn btn-danger text-white w-100">Submit</button>
+            </div>
+        </form>
+
+        <div>
+            <a href="{% url 'passchange' %}"><button class="btn btn-warning w-100 mt-4">Change Password</button></a>
+            
+        </div>
+    </div>
+{% endblock contents %}
+    
