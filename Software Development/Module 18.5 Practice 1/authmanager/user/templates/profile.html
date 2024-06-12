@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block contents %}
+<div class="container">
+    <div style="width: 800px; margin: auto; padding: 20px 0;">
+        <h4 class="text-primary py-3">{{title}} page</h4>
+        <h2>Welcome {{user.first_name}}</h2>
+
+        <div class="mt-5">
+            <h5>Change user password</h5>
+            <a href="{% url 'changepass' %}">
+                <button class="bg-primary-subtle text-primary-emphasis btn border border-primary-subtle" >With password</button>
+            </a>
+            <a href="{% url 'changepass2' %}">
+                <button class="bg-primary-subtle text-primary-emphasis btn border border-primary-subtle" >Without password</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock contents %}
+    
