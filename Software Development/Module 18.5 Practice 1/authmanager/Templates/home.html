@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block contents %}
+    <div class="container">
+        {% for m in messages %}
+            <p class="w-100 p-3 rounded-2 bg-primary-subtle text-primary-emphasis my-3">{{m}}</p>
+        {% endfor %}
+        <div class=" w-100 d-flex align-items-center justify-content-center" style="height: 80vh;">
+            <h1 style="font-size: 90px;">Welcome to our site</h1>
+        </div>
+
+    </div>
+{% endblock contents %}
+    
