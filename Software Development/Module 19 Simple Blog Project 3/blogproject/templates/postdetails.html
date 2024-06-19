@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+    <div style="width: 800px; margin: 40px auto;">
+        <div class="">
+            <div class="card">
+              <div class="card-body">
+                <img src="{{post.image.url}}" class="card-img-top rounded-2" alt="...">
+                <h2 class="card-title mt-2 text-uppercase text-center">{{post.title}}</h2>
+                <p class="card-text text-center">{{post.content }}</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <h6>Categories: </h6>
+                    {% for category in post.category.all %} 
+                    <button disabled class="btn-dark btn text-white mb-1">{{category.name}}</button>
+                    {% endfor %}
+                <h6 class="mt-3"><span class="text-danger">Author: </span>
+                {% if post.author.first_name %}
+                  {{post.author.first_name}} {{post.author.last_name}}
+                  {% else %}
+                  {{post.author}}
+                {% endif %}
+                  </h6>
+  
+                <div class="d-flex justify-content-end">
+                  <a href="{% url 'edit_post' post.id %}"><button class="btn btn-primary me-2 px-4">Edit</button></a>
+                  <a href="{% url 'delete_post' post.id %}"><button class="btn btn-danger px-4">Delete</button></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-2 bg-white p-3 rounded-2">
+                <h4>Total comments: {{comments | length}}</h4>
+                
+                {% for comment in comments %}
+                    <p class="border-1 border rounded-2 border-primary p-2 m-1"><b class="text-primary">{{comment.name}}: </b>{{comment.body}} <br> <span style="font-size: 12px; text-align: right;">{{comment.created_on}}</span> </p>
+                {% endfor %}
+                    
+            </div>
+            <form method="post" class="my-2 bg-white p-3 rounded-2" >
+                <h3>Add Comment</h3>
+                    {% csrf_token %}
+                    {{comment_form | crispy}}
+                <button type="submit" class="btn btn-primary">Comment</button>
+            </form>
+          </div>
+    </div>
+{% endblock contents %}
