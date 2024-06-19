@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div class="d-flex align-items-start my-5 gap-2">
+   <div style="min-height: 80vh; width: 20%; border: 1px solid rgb(203, 203, 203); padding: 20px; border-radius: 8px; background-color: white;">
+    <p>Categories: </p>
+    {% for cat in categories %}
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="category" id="{{cat.id}}">
+        <label class="form-check-label" for="{{cat.id}}">
+          <a style="text-decoration: none; color: black;" href="{% url 'category_wise_post' cat.slug %}">
+            {{cat.name}}
+          </a>
+      </label>
+      </div>
+      {% endfor %}
+      
+    <!-- <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Default checked radio
+      </label>
+    </div> -->
+   </div>
+
+  <div class="row" style="width: 80%;">
+      <p class="text-uppercase">Total Post: <strong>{{posts | length}}</strong></p>
+      {% for post in posts %}
+          <div class="col-sm-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <img src="{{post.image.url}}" class="card-img-top rounded-2" alt="...">
+                <h5 class="card-title mt-2 text-center"><a class="text-decoration-none text-primary" href="{% url 'detail_post' post.id %}">{{post.title}}</a></h5>
+                <p class="card-text text-center">{{post.content | truncatewords:10 }}</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <h6>Categories: </h6>
+                    {% for category in post.category.all %}
+                    <button disabled class="btn-dark btn text-white mb-1">{{category.name}}</button>
+                    {% endfor %}
+                <h6 class="mt-3"><span class="text-danger">Author: </span>
+                {% if post.author.first_name %}
+                  {{post.author.first_name}} {{post.author.last_name}}
+                  {% else %}
+                  {{post.author}}
+                {% endif %}
+                  </h6>
+  
+                <div class="d-flex justify-content-end">
+                  <a href="{% url 'edit_post' post.id %}"><button class="btn btn-primary me-2 px-4">Edit</button></a>
+                  <a href="{% url 'delete_post' post.id %}"><button class="btn btn-danger px-4">Delete</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+          
+  </div>
+</div>
+{% endblock contents %}
+    
