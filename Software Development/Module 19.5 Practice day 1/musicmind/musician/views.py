@@ -15,5 +15,4 @@ class AddMusician(CreateView):
     template_name = 'add_musician.html'
     success_url = '/'
     def form_valid(self, form):
-        messages.success(r)
         return super().form_valid(form)

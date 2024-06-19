@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from posts.models import Post
+from django.contrib.auth.views import LoginView, LogoutView
 
 # Create your views here.
 def register(req):
@@ -20,7 +21,6 @@ def register(req):
         register_form = form.RegistrationForm()
     return render(req, 'register.html', {'form' : register_form, 'type':'Register'})
 
-from django.contrib.auth.views import LoginView, LogoutView
 
 def login_form(req):
     if req.method == 'POST':
