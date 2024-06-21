@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from album.models import Album
 def home(req):
-    return render(req, 'home.html')
+    albums = Album.objects.all()
+    return render(req, 'home.html', {'albums' : albums})
