@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .forms import AlbumForm
-from django.views.generic import CreateView
+from .models import Album
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from . import models
 from . import forms
@@ -23,3 +24,17 @@ class AddAlbum(CreateView):
     
     def form_valid(self, form):
         return super().form_valid(form)
+
+
+class edit_album(UpdateView):
+    model = models.Album
+    form_class = AlbumForm
+    template_name = 'add_album.html'
+    success_url = reverse_lazy('homepage')
+    pk_url_kwarg = 'pk'
+
+class Delete_album(DeleteView):
+    model = models.Album
+    template_name = 'delete_album.html'
+    success_url = reverse_lazy('homepage')
+    pk_url_kwarg = 'pk'
