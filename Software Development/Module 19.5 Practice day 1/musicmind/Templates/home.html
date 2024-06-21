@@ -2,6 +2,14 @@
 
 
 {% block contents %}
-    <h1>This is home page</h1>
+    <div class="container">
+        
+        {% for m in messages %}
+            <p class="p-3 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">-> {{m}}</p>
+        {% endfor %}
+            
+        <h1>Welcome to Musicmind</h1>
+        
+    </div>
 {% endblock contents %}
     
