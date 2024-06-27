@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Home
+{% endblock title %}
+    
+
+{% block contents %}
+    <div class="container mt-3">
+        <!-- <h1>This is home</h1> -->
+
+        <div class="row">
+            {% for car in cars %}
+            <div class="col-lg-4 mb-4">
+                <div class="card" >
+                    <div style="height: 300px; overflow: hidden; ">
+                        <img src="{{car.image.url}}" style="width: fit-content; height: 100%;" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{car.name}}</h5>
+                      <p class="card-text tx-primary">{{car.details | truncatewords:20}}</p>
+                      <a href="#" class="btn btn-primary">{{car.brand.name}}</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+            
+    </div>
+{% endblock contents %}
+    

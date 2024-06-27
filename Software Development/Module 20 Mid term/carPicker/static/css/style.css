@@ -1,0 +1,31 @@
+:root {
+    --primary-color: #0A6847;
+    --secondary-color: #F3CA52;
+    --background-color: #f6eec8;
+    --neutral-color: #7ABA78 ;
+}
+
+.tx-primary{
+    color: var(--primary-color);
+}
+.bgc-primary{
+    background-color: var(--primary-color);
+}
+.tx-secondary{
+    color:var(--secondary-color);
+}
+.bgc-secondary{
+    background-color:var(--secondary-color);
+}
+.tx-background{
+    color:var(--background-color);
+}
+.bgc-background{
+    background-color:var(--background-color);
+}
+.tx-neutral{
+    color:var(--neutral-color);
+}
+.bgc-neutral{
+    background-color:var(--neutral-color);
+}
