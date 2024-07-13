@@ -1,18 +1,51 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %} Login {% endblock title %}
+{% block title %} Profile {% endblock title %}
 
 {% block contents %}
 <div class="container">
-    <h1 class="py-5">Hey {{user}}!</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form | crispy}}
-
-        <div>
-            <button type="submit" class="btn bg-danger text-white w-100">Save</button>
+    <h1 class="py-5">Hey 
+    {% if user.first_name %}
+        {{user.first_name}}
+    {% else %}
+        {{user}}
+    {% endif %}
+    {% if user.last_name %}
+        {{user.last_name}}
+    {% endif %}!</h1>
+    <div class="d-flex gap-4">
+        <div style="width: 70%;">
+            <form method="post">
+                {% csrf_token %}
+                {{form | crispy}}
+        
+                <div>
+                    <button type="submit" class="btn bg-danger text-white w-100">Save</button>
+                </div>
+            </form>
         </div>
-    </form>
+        <div style="width: 30%;">
+            <h5 class="mb-3">Your order history:</h5>
+            
+            {% if order_history %}
+            {% for order in order_history %}
+            <div class="w-100 d-flex gap-2 mb-2 rounded-2 p-2" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(60, 60, 60);">
+                <div style="width: 60%; height: 100%; display: flex; align-items: center;">
+                    <img style="width: 80%; height: 100%;" class="rounded-2" src="{{order.car_info.image.url}}" alt="">
+                </div>
+                <div class="40%">
+                    <h6>{{order.car_info}}</h6>
+                    <p style="font-size: 14px; margin-bottom: 3px;">{{order.date}}</p>
+                    <p style="font-size: 15px; font-weight: bold;">{{order.car_info.price}}$</p>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+        <p>No history founded</p>
+            {% endif %}
+                
+        </div>
+    </div>
 </div>
 {% endblock contents %}

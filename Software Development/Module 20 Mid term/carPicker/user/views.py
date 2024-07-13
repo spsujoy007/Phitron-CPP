@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from . import forms
 from django.contrib.auth import logout
+from orders.models import Orderhistory
 
 # Create your views here.
 def login(req):
@@ -41,6 +42,7 @@ class UserLoginView(LoginView):
     
 def Profile(req):
     if req.user.is_authenticated:
+        order_history = Orderhistory.objects.filter(username=req.user.username).order_by('-id')
         if req.method == 'POST':
             profile_form = forms.ChangeUserForm(req.POST, instance=req.user)
             if profile_form.is_valid():
@@ -49,7 +51,7 @@ def Profile(req):
                 return redirect('profile')
         else:
             profile_form = forms.ChangeUserForm(instance=req.user)
-        return render(req, 'profile.html', {'form' : profile_form, 'type':'Edit Profile'})
+        return render(req, 'profile.html', {'form' : profile_form, 'type':'Edit Profile', 'order_history': order_history})
     else:
         return redirect('loginpage')
     
