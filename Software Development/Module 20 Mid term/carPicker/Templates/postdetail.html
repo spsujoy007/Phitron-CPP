@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{car.name | truncatewords:3}}
+{% endblock title %}
+    
+
+{% block contents %}
+    <div class="container pt-5">
+        <div class="d-flex align-items-center gap-4">
+            <img src="{{car.image.url}}" class="w-50 rounded-2" alt="">
+            <div>
+                <h1>{{car.name}}</h1>
+                <h5 class="mt-2">{{car.title}}</h5>
+                <p>{{car.details}}</p>
+                
+                <h2 style="color: #1b1b1b; background-color: #e3e3e3; padding: 5px 30px; font-size: 18px; display: inline; border-radius: 30px;">Brand: {{car.brand}}</h2>
+                <h2 style="color: #fdba00; background-color: #fef7dd; border: 1px solid #ffc400; padding: 5px 30px; font-size: 18px; display: inline; border-radius: 30px; margin-left: 5px;">Price: {{car.price}}$</h2>
+                <div class="d-flex justify-content-start mt-4">
+                    <p style="font-size: 18px;">Available: {{car.quantity}}</p>
+                </div>
+                
+                {% if user.is_authenticated %}
+                    
+                    {% if car.quantity > 0 %}
+                    <a href="{% url 'makeorder' car.id %}">
+                        <button class="w-100 border-0 bgc-secondary rounded-2" style="padding: 10px; margin-top: 20px;">Buy now</button>
+                    </a>
+                    {% else %}
+                        <button class="w-100 border-0 bgc-background rounded-2" style="padding: 10px; margin-top: 20px;">Stock out</button>
+                    {% endif %}
+                        
+                {% endif %}
+                    
+            </div>
+        </div>
+    </div>
+{% endblock contents %}
+    

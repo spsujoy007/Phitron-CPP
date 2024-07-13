@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
     Home
@@ -9,18 +9,39 @@
 {% block contents %}
     <div class="container mt-3">
         <!-- <h1>This is home</h1> -->
+        <div style="min-height: 100vh;">
+            <img src="/static/images/carshop.svg" alt="">
+            <div style="margin-top: -20px;">
+                <h1 style="font-size: 80px; text-transform: uppercase;">Let's shop with <span class="tx-secondary">CarpPicker</span></h1>
+            <h1 style="font-size: 20px; text-transform: uppercase;">The CarPicker! It's a fantastic tool for car enthusiasts and potential buyers alike.</h1>
+            </div>
+        </div>
 
-        <div class="row">
+        <div style="margin-top: 100px;">
+            <h1 class="text-center">Available Cars</h1>
+            <p class="text-center">CarPicker is a website that utilizes a user-friendly interface to help individuals find their dream car. nce</p>
+        </div>
+
+        <div class="d-flex align-items-center gap-2 justify-content-center">
+            
+            {% for brand in brands %}
+                <a href="{% url 'brand' brand.name %}"><button class="btn btn-dark">{{brand.name}}</button></a>
+            {% endfor %}
+                
+        </div>
+        <div class="row" style="margin-top: 50px;">
             {% for car in cars %}
-            <div class="col-lg-4 mb-4">
+            <div class="col-lg-3 mb-4">
                 <div class="card" >
                     <div style="height: 300px; overflow: hidden; ">
                         <img src="{{car.image.url}}" style="width: fit-content; height: 100%;" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
+                      <h6 class="card-title text-end">{{car.price}}$</h6>
                       <h5 class="card-title">{{car.name}}</h5>
-                      <p class="card-text tx-primary">{{car.details | truncatewords:20}}</p>
-                      <a href="#" class="btn btn-primary">{{car.brand.name}}</a>
+                      <p class="card-text tx-primary">{{car.details | truncatewords:15}}</p>
+                      <!-- <a href="#" class="btn btn-primary">{{car.brand.name}}</a> -->
+                      <a href="{% url 'details' car.id %}" class="bgc-secondary text-black" style="text-decoration: none; padding: 6px; width: 100%; display: block; text-align: center; border-radius: 5px;">View Car</a>
                     </div>
                   </div>
             </div>
